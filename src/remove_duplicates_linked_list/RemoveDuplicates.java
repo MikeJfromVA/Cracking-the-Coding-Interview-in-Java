@@ -11,42 +11,31 @@ import org.junit.Test;
  * 
  * Remove duplicates from an unsorted linked list
  * 
- * Remove duplicates from an unsorted linked list
-
-Q: What is in the linked list?
-
-Strings
-
-Q: Do I have the code for Node? Should I write it?
-
-Write it
-
-OK, 
-
-class Node {
-  public Node next;
-  public String string;
-}
-
-Strategy:
-
-Create a data collection.
-Walk the linked list *
-For each element, see if the collection "contains" that element.
-If it contains it, remove it from the linked list *
-If not, add it to the collection
-
-For performance sake, the collection should be a sorted list or hashmap or
-something supporting quick lookup.
-
-* Walking: cursor = cursor.next
-* Removing: previous.next = previous.next.next
-Roughly speaking
-
-Lessons learned:
-Forgot to account for null payload string
-
-
+ * Q: What is in the linked list?
+ * 
+ * A: Strings
+ * 
+ * Q: Do I have the code for Node? Should I write it?
+ * 
+ * A: Write it
+ * 
+ * OK,
+ * 
+ * class Node { public Node next; public String string; }
+ * 
+ * Strategy:
+ * 
+ * Create a data collection. Walk the linked list * For each element, see if the
+ * collection "contains" that element. If it contains it, remove it from the
+ * linked list * If not, add it to the collection
+ * 
+ * For performance sake, the collection should be a sorted list or hashmap or
+ * something supporting quick lookup.
+ * 
+ * Walking: cursor = cursor.next Removing: previous.next = previous.next.next
+ * Roughly speaking
+ * 
+ * Lessons learned: Forgot to account for null payload string
  * 
  * @author michaeljohnson
  *
@@ -84,9 +73,12 @@ public class RemoveDuplicates { // Leaving off public disabled JUnit
 
 	boolean listsEqual(Node a, Node b) {
 		while (a != null || b != null) {
-			if (a == null) return false;
-			if (b == null) return false;
-			if (!a.string.equals(b.string)) return false;
+			if (a == null)
+				return false;
+			if (b == null)
+				return false;
+			if (!a.string.equals(b.string))
+				return false;
 			a = a.next;
 			b = b.next;
 		}
@@ -97,18 +89,18 @@ public class RemoveDuplicates { // Leaving off public disabled JUnit
 	public void testRemoveDuplicates() {
 		// sanity checks
 		Node a = new Node();
-		a.string="hello";
-		assertTrue(listsEqual(a,a));
-		assertTrue(listsEqual(null,null));
+		a.string = "hello";
+		assertTrue(listsEqual(a, a));
+		assertTrue(listsEqual(null, null));
 		assertFalse(listsEqual(a, null));
 		assertFalse(listsEqual(null, a));
 
 		Node b = new Node();
 		b.string = "hello";
-		assertTrue(listsEqual(a,b));
+		assertTrue(listsEqual(a, b));
 		b.next = new Node();
 		b.next.string = "world";
-		assertFalse(listsEqual(a,b));
+		assertFalse(listsEqual(a, b));
 
 		// test implementation
 		Node dupes = new Node();
@@ -121,15 +113,15 @@ public class RemoveDuplicates { // Leaving off public disabled JUnit
 		dupes.next.next.next.string = "hello";
 		dupes.next.next.next.next = new Node();
 		dupes.next.next.next.next.string = "world";
-		
+
 		Node nodupes = new Node();
 		nodupes.string = "hello";
 		nodupes.next = new Node();
 		nodupes.next.string = "world";
-		
+
 		removeDuplicates(dupes);
-		
+
 		assertTrue(listsEqual(nodupes, dupes));
-		
+
 	}
 }
