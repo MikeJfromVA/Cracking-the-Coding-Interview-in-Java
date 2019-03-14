@@ -30,6 +30,7 @@ public class TreeTest {
 		D.child = I;
 		
 		Tree.reverse(A);
+		
 		assertEquals(D, A.child);
 		assertEquals(null, A.sibling);
 		assertEquals(F, B.child);
@@ -37,7 +38,7 @@ public class TreeTest {
 		assertEquals(H, C.child);
 		assertEquals(B, C.sibling);
 		assertEquals(I, D.child);
-		assertEquals(D, D.sibling);
+		assertEquals(C, D.sibling);
 		assertEquals(null, E.child);
 		assertEquals(null, E.sibling);
 		assertEquals(null, F.child);

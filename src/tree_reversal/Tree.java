@@ -27,6 +27,7 @@ public class Tree {
 		String value;
 		Node sibling;
 		Node child;
+
 		Node(String value) {
 			this.value = value;
 		}
@@ -49,6 +50,7 @@ public class Tree {
 		previous.sibling = null;
 		Node next = cursor.sibling;
 		while (next != null) {
+			cursor.child = reverse(cursor.child);
 			cursor.sibling = previous;
 
 			previous = cursor;
