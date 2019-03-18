@@ -27,6 +27,10 @@ public class CompoundWords {
 		if (word.equals(""))
 			return true;
 		for (String prefix : dictionary) {
+			if (word.equals(prefix))
+				return true;
+			if (word.length() < prefix.length())
+				continue;
 			if (word.substring(0, prefix.length()).equals(prefix)) {
 				if (slow(word.substring(prefix.length()), dictionary))
 					return true;
