@@ -30,7 +30,7 @@ public class WordToWord {
 	  // assume startWord, endWord, and dictionary are in all caps
 	  public static List findPath (String startWord, String endWord, HashSet<String> dictionary) {
 	    HashMap <String,String> origin = new HashMap<>();
-	    HashSet <String> explored = new HashMap<>();
+	    HashSet <String> explored = new HashSet<>(); // HashSet not HashMap
 	    LinkedList <String> queue = new LinkedList<>();
 	    
 	    queue.add(0, startWord); // push to low end
@@ -38,7 +38,8 @@ public class WordToWord {
 
 	    
 	    while (!queue.isEmpty()) {
-	      String searchWord = queue.get(); // pop from high end
+	      String searchWord = queue.remove(queue.size()-1); // Needed an index
+	      // REMOVE not GET
 	      explored.add(searchWord);
 	      
 	      for (String foundWord: oneOffWords(searchWord)) {
@@ -46,10 +47,10 @@ public class WordToWord {
 	          LinkedList<String> answer = new LinkedList<>();
 	          origin.put(endWord, searchWord);
 	          String word = endWord;
-	          answer.put(0, word);
+	          answer.add(0, word); // add not put
 	          while (origin.get(word) != null) {
 	            word = origin.get(word);
-	            answer.put(0, word);
+	            answer.add(0, word); // add not put
 	          }
 	          return answer;
 	        }
@@ -63,11 +64,11 @@ public class WordToWord {
 	    return null;
 	  }
 	 
-	  private static List oneOffWords(String word) {
+	  private static List<String> oneOffWords(String word) { // Needed generic type
 	    ArrayList<String> foundWords = new ArrayList<>();
-	    for (int i=0; i<word.length; i++) {
+	    for (int i=0; i<word.length(); i++) { // String.length() is method
 	      char[] wordArray = word.toCharArray();
-	      for (int c='A'; c<='Z'; c++) {
+	      for (char c='A'; c<='Z'; c++) { // char not int
 	        wordArray[i] = c;
 	        String newWord = new String(wordArray);
 	        if (!newWord.equals(word)) foundWords.add(newWord);

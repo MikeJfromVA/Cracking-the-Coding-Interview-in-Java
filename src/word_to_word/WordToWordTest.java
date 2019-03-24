@@ -1,22 +1,10 @@
 package word_to_word;
 
 import java.util.HashSet;
-import java.util.List;
-
-import org.junit.Test;
-
-import compound_word.CompoundWords.Implementation;
 
 public class WordToWordTest {
 
-	private void testAllImplementations(String word, List<String> dictionary, boolean expected) {
-		for (Implementation method : Implementation.values()) {
-//			assertEquals(expected, WordToWord.isCompoundWord(word, dictionary, method));
-		}
-	}
-
-	@Test
-	public void test() {
+	public static void main(String[] args) {
 		HashSet<String> dictionary = new HashSet<>();
 		dictionary.add("FOOD");
 		dictionary.add("FOLD");
@@ -39,7 +27,11 @@ public class WordToWordTest {
 		dictionary.add("LIME");
 		dictionary.add("LIKE");
 		dictionary.add("BIKE");
-		
+
 		System.out.println(WordToWord.findPath("FOOD", "GOLF", dictionary));
+		System.out.println(WordToWord.findPath("DAMP", "LIKE", dictionary));
+		System.out.println(WordToWord.findPath("FOOD", "BIKE", dictionary));
+		System.out.println(WordToWord.findPath("DAMP", "BIKE", dictionary));
+
 	}
 }
