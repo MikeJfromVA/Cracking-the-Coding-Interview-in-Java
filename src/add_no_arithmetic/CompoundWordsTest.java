@@ -2,45 +2,16 @@ package add_no_arithmetic;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
-
-import compound_word.CompoundWords.Implementation;
 
 public class CompoundWordsTest {
 
-	private void testAllImplementations(String word, List<String> dictionary, boolean expected) {
-		for (Implementation method : Implementation.values()) {
-			assertEquals(expected, AddNoArithmetic.isCompoundWord(word, dictionary, method));
-		}
-	}
-
 	@Test
 	public void test() {
-		List<String> dictionary = new ArrayList<String>();
-		dictionary.add("house");
-		dictionary.add("boat");
-		dictionary.add("birth");
-		dictionary.add("day");
-		dictionary.add("bar");
-		dictionary.add("dream");
-		dictionary.add("day");
-		dictionary.add("crow");
-		
-		testAllImplementations("", dictionary, true);
-		testAllImplementations("houseboat", dictionary, true);
-		testAllImplementations("boathouse", dictionary, true);
-		testAllImplementations("birthday", dictionary, true);
-		testAllImplementations("daydream", dictionary, true);
-		testAllImplementations("crowbar", dictionary, true);
-		testAllImplementations("dreamboat", dictionary, true);
-		testAllImplementations("dayday", dictionary, true);
-		testAllImplementations("birthdaycrow", dictionary, true);
-		testAllImplementations("dreamdreamdream", dictionary, true);
-		
-		testAllImplementations("pudding", dictionary, false);
-		testAllImplementations("birthpig", dictionary, false);
+		assertEquals(0, AddNoArithmetic.add(0, 0));
+		assertEquals(3, AddNoArithmetic.add(1, 2));
+		assertEquals(33, AddNoArithmetic.add(22, 11));
+		assertEquals(198, AddNoArithmetic.add(99, 99));
+		assertEquals(-10, AddNoArithmetic.add(-7, -3));
 	}
 }
