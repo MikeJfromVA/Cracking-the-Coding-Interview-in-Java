@@ -1,8 +1,6 @@
 package graphs_sets;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * 
@@ -78,7 +76,6 @@ public class Prim {
 					}
 				}
 			}
-			System.out.printf("%d %d %d\n", x, y, adjacencyMatrix[x][y]);
 			edgesAdded++;
 			mst += adjacencyMatrix[x][y];
 			selected[y] = true;

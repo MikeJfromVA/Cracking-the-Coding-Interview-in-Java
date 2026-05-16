@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class CompoundWordsTest {
+public class AddNoArithmeticTest {
 
 	@Test
 	public void test() {

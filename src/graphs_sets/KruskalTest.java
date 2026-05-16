@@ -8,7 +8,7 @@ public class KruskalTest {
 
 	@Test
 	public void testKruskal() {
-		Kruskal kruskal = new Kruskal();
+		Kruskal kruskal = new Kruskal(8);
 		kruskal.add(kruskal.new Edge(0, 1, 4));
 		kruskal.add(kruskal.new Edge(1, 2, 8));
 		kruskal.add(kruskal.new Edge(2, 3, 7));

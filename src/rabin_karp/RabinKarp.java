@@ -4,9 +4,9 @@ public class RabinKarp {
 
 	public static int rabinKarp(String pattern, String search) {
 		// trivial cases
-		if (pattern.length() == 0 || search.length() == 0)
-			return -1;
 		if (pattern == null || search == null)
+			return -1;
+		if (pattern.length() == 0 || search.length() == 0)
 			return -1;
 		if (search.length() < pattern.length())
 			return -1;
@@ -43,7 +43,7 @@ public class RabinKarp {
 		// search for pattern
 		search: for (int searchIndex = 0; searchIndex < search.length() - pattern.length() + 1; searchIndex += 1) {
 			if (patternHash != searchHashes[searchIndex]) {
-				System.out.println("Optimize!");
+				// optimize
 				continue;
 			}
 			for (int patternIndex = 0; patternIndex < pattern.length(); patternIndex += 1) {

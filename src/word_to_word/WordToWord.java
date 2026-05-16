@@ -28,7 +28,7 @@ Data Structures:
  */
 public class WordToWord {
 	  // assume startWord, endWord, and dictionary are in all caps
-	  public static List findPath (String startWord, String endWord, HashSet<String> dictionary) {
+	  public static List<String> findPath (String startWord, String endWord, HashSet<String> dictionary) {
 	    HashMap <String,String> origin = new HashMap<>();
 	    HashSet <String> explored = new HashSet<>(); // HashSet not HashMap
 	    LinkedList <String> queue = new LinkedList<>();

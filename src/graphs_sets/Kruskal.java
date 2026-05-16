@@ -1,7 +1,6 @@
 package graphs_sets;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -12,6 +11,11 @@ import java.util.Collections;
  *
  */
 public class Kruskal {
+	int maxNode;
+
+	public Kruskal(int maxNode) {
+		this.maxNode = maxNode;
+	}
 
 	public class Edge implements Comparable<Edge> {
 		public final int nodeA;
@@ -43,7 +47,7 @@ public class Kruskal {
 	public int MST() {
 		int mst = 0;
 		Collections.sort(edgeList);
-		Set cycleSet = new Set();
+		Set cycleSet = new Set(maxNode+1);
 		for (Edge e: edgeList) {
 			/*
 			 * Only add an edge to the MST if the nodes are not already connected.

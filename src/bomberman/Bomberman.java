@@ -1,11 +1,8 @@
 package bomberman;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.AfterEach;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -103,7 +100,7 @@ public class Bomberman {
 		}
 
 		for (int i = 0; i < m.length; i++) {
-			for (int j = 0; j < m.length; j++) {
+			for (int j = 0; j < m[0].length; j++) {
 				a[i][j] = r[i][j] + c[i][j];
 				if (m[i][j] == 'B') a[i][j] -= 1; // double-counting Bombs
 			}

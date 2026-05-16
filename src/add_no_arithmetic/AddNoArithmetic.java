@@ -1,19 +1,15 @@
 package add_no_arithmetic;
 
-import java.util.List;
-import java.util.TreeSet;
-
 /**
- * 
+ *
  * Add two numbers without using + or any arithmetic operators.
- * 
+ *
  * @author michaeljohnson
  *
  */
 public class AddNoArithmetic {
 
 	public static int add(int a, int b) {
-		// not sure what this does for negative numbers
 		int c = 0;
 		int sum = 0;
 		for (int i = 0; i < 32; i++) {
@@ -26,5 +22,4 @@ public class AddNoArithmetic {
 		}
 		return sum;
 	}
-	// realized later that a^b is xor
 }
