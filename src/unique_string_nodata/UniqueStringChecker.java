@@ -75,7 +75,7 @@ public class UniqueStringChecker {
 		if (s.length() == 1)
 			return true;
 
-		boolean[] f = new boolean[2 << Character.SIZE];
+		boolean[] f = new boolean[1 << Character.SIZE];
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			if (f[c])

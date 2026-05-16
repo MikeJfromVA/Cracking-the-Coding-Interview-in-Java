@@ -22,7 +22,7 @@ public class CompoundWords {
 		case FAST:
 			return fast(word, dictionary);
 		default:
-			throw new RuntimeException("Java should provid exhaustive enum switches");
+			throw new RuntimeException("Java should provide exhaustive enum switches");
 		}
 	}
 
@@ -38,6 +38,8 @@ public class CompoundWords {
 		if (word.equals(""))
 			return true;
 		for (String prefix : dictionary) {
+			if (prefix.isEmpty())
+				continue;
 			if (word.equals(prefix))
 				return true;
 			if (word.length() < prefix.length())

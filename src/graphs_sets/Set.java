@@ -36,13 +36,6 @@ public class Set {
 	}
 
 	/**
-	 * Test classes should not test themselves, but that's just how I set things up.
-	 */
-	public Set() {
-		this(100);
-	}
-
-	/**
 	 * Utility method to find index of root element for any element Can be the same
 	 * element, which means parameter element is a root.
 	 * 
